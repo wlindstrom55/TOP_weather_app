@@ -87,6 +87,9 @@ async function parseWeather(loc) {
         } else if(resp.desc1 === 'Clear') { //&& new Date().toLocaleTimeString > a certain time, show night?
             body.style.backgroundColor = 'lightskyblue';
             body.style.color = 'white';
+        } else if(resp.desc1 === 'Thunderstorm') {
+            body.style.backgroundColor = 'black';
+            body.style.color = 'yellow';
         } else if(resp.desc1 === 'Mist') {
             body.style.backgroundColor = 'royalblue';
             body.style.color = 'white';
