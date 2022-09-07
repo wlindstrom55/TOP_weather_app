@@ -81,8 +81,9 @@ async function parseWeather(loc) {
         } else if( resp.desc1 === 'Rain') {
             body.style.backgroundColor = 'darkblue';
             body.style.color = 'lightskyblue';
-        } else if(resp.desc1 === 'snow') {
-            body.style.backgroundColor = ''
+        } else if(resp.desc1 === 'Snow') {
+            body.style.backgroundColor = 'white';
+            body.style.color = 'darkslategray';
         } else if(resp.desc1 === 'Clear') { //&& new Date().toLocaleTimeString > a certain time, show night?
             body.style.backgroundColor = 'lightskyblue';
             body.style.color = 'white';
