@@ -5,7 +5,7 @@
 
 //this will make the weather call, and then filter that data into an object which it will return
 function getWeather(location) {
-    let string = `http://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=390dd47327fb6eaa282682582c6a7ba7`;
+    let string = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=390dd47327fb6eaa282682582c6a7ba7`;
     let x = fetch(string, {mode: 'cors'})
         .then(response => {
             return response.json(); //returns a promise to the next then
