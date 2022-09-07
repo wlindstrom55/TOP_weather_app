@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="outer">
+        <h1>weather_app</h1>
+        <form class="form" onsubmit="changeLoc(); return false">
+            <input type="text" id="location" name="location" placeholder="Type in your city...">
+            <!--radio choice button for standard, metric, or imperial units here? will need to modify -->
+            <button type="submit">Submit</button>
+        </form>
+        <div class="loading"></div>
+        <div class="content"><p class="todelete"></p></div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
