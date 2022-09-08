@@ -1,5 +1,5 @@
 # The Odin Project - Weather App Project
-- live page here:https://wlindstrom55.github.io/TOP_weather_app/
+- live page here: https://wlindstrom55.github.io/TOP_weather_app/
 - instructions here: https://www.theodinproject.com/lessons/node-path-javascript-weather-app
 
 - this was the first project to use JS promises, and as such I tried to familiarize myself with those as well as async/await.
