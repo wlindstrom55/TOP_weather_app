@@ -15,9 +15,22 @@
             <!--radio choice button for standard, metric, or imperial units here? will need to modify -->
             <button type="submit">Submit</button>
         </form>
-        <div class="loading"></div>
-        <div class="content"><p class="todelete"></p></div>
+        <div class="content">
+            <p class="todelete">
+            </p>
+        </div>
+        <div class="translate">
+            <div id="google_translate_element"></div>
+            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                }
+            </script>
+        </div>
     </div>
+    
     <script src="index.js"></script>
+    <div class="loading"></div>
 </body>
 </html>
