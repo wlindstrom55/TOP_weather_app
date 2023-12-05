@@ -35,7 +35,7 @@ function getWeather(location) {
       return w;
     })
     .catch(() => {
-      window.alert("There was an error getting a response!");
+      window.alert("There was an error while trying to get a response!");
     });
   return x;
 }
@@ -44,7 +44,7 @@ function getWeather(location) {
 async function fetchGif(desc) {
   try {
     //the giphy translate endpoint converts words and phrases to gif form via algorithm
-    let urlString = `https://api.giphy.com/v1/gifs/translate?api_key=rKZIWTL7Xvk4WGgU2VLgLoklD8wykBZP&weirdness=0&s=${desc}`;
+    let urlString = `https://api.giphy.com/v1/gifs/translate?api_key=rKZIWTL7Xvk4WGgU2VLgLoklD8wykBZP&weirdness=10&s=${desc}`;
     const response = await fetch(urlString, { mode: "cors" });
     return response.json();
   } catch {
@@ -62,7 +62,7 @@ async function parseWeather(loc) {
   body.style.minHeight = "64vh";
   //should we have some try/catches around these below?
   const resp = await getWeather(loc); //await the result of get weather, take the returned object into parseWeather()
-  const gif = await fetchGif(resp.name + " " + resp.desc1 + " weather"); //await result of gif, take returned objet to display in parseWeather()
+  const gif = await fetchGif(resp.name + " " + resp.desc1 + " weather"); //await result of gif, take returned object to display in parseWeather()
   const content = document.querySelector(".content");
 
   //upon every location submit, delete content elements before recreating
@@ -103,7 +103,7 @@ async function parseWeather(loc) {
     body.style.color = "black";
   }
 
-  //test console logs
+  //test CONSOLE LOGS
   console.log("city: " + resp.city);
   console.log("lat: " + resp.lat + "; long: " + resp.long);
   console.log("description: " + resp.desc1 + "; " + resp.desc2);
@@ -120,9 +120,11 @@ async function parseWeather(loc) {
   console.log("sunrise today is: " + resp.sunrise);
   console.log("sunset today is: " + resp.sunset);
 
-  const p = document.createElement("p");
-  let ct = new Date().toLocaleTimeString(); //current time
-  p.innerHTML =
+  const text = document.createElement("div");
+  let ct = new Date().toLocaleTimeString(); //current time (local)
+  text.id = "text";
+  text.classList.add("todelete");
+  text.innerHTML =
     resp.city +
     " - " +
     resp.country +
@@ -135,15 +137,15 @@ async function parseWeather(loc) {
     "; " +
     resp.desc2 +
     "<br><br> current time is: " +
-    ct +
+    ct + " Central Standard Time" +
     "<br> current temp is: " +
-    resp.temp +
+    resp.temp + " degrees F" +
     "<br> feels like: " +
-    resp.feelsLike +
+    resp.feelsLike +  " degrees F" +
     "<br> the high is: " +
-    resp.high +
+    resp.high +  " degrees F" +
     "<br> the low is: " +
-    resp.low +
+    resp.low +  " degrees F" + 
     "<br> humidity: " +
     resp.humidity +
     "%<br> atmospheric pressure: " +
@@ -162,11 +164,14 @@ async function parseWeather(loc) {
     "<br> sunrise: " +
     resp.sunrise;
 
-  p.classList.add("todelete");
 
-  content.append(p);
-  content.append(gifC);
+  const gifcontainer = document.createElement("div");
+  gifcontainer.id = "gifcontainer";
+  gifcontainer.classList.add("todelete");
 
+  content.append(text);
+  gifcontainer.append(gifC);
+  content.append(gifcontainer);
   return resp;
 }
 

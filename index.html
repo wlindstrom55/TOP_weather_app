@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +8,31 @@
     <title>Weather</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="outer">
+    <main class="outer">
         <h1>weather_app</h1>
         <form class="form" onsubmit="changeLoc(); return false">
             <input type="text" id="location" name="location" placeholder="Type in your city...">
             <!--radio choice button for standard, metric, or imperial units here? will need to modify -->
             <button type="submit">Submit</button>
         </form>
-        <div class="content">
-            <p class="todelete">
-            </p>
-        </div>
-        <div class="translate">
-            <div id="google_translate_element"></div>
-            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-            <script type="text/javascript">
-                function googleTranslateElementInit() {
-                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-                }
-            </script>
-        </div>
-    </div>
-    
+        <section class="content">
+            <!-- <div id="gifcontainer"></div>   -->
+        </section>
+        <section>
+            <div class="translate">
+                <div id="google_translate_element"></div>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+                    }
+                </script>
+            </div>
+        </section>
+    </main>
+
     <script src="index.js"></script>
     <div class="loading"></div>
 </body>

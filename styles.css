@@ -23,9 +23,20 @@ h1 {
     gap: 100px;
 }
 
+#text {
+
+}
+
 #gif {
     border-radius: 22px;
     max-height: 400px;
+}
+
+#gifcontainer {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; */
 }
 
 .form {
@@ -35,9 +46,22 @@ h1 {
 }
 
 .todelete {
-    text-align: center;
+    /* text-align: left; */
+    line-height: 26px;
+    margin: auto 0;
 }
 
 .translate {
     margin-top: 40px;
+}
+
+@media screen and (max-width: 941px) {
+    .content {
+        /* gap: 0;
+        width: 37%;
+        height: 300px; */
+    }
+    #gif {
+
+    }
 }
